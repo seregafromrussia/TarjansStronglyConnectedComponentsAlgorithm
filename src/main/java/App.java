@@ -37,6 +37,7 @@ public class App {
         //JTextField jTextField=new JTextField("0",3);
         // jTextField.setBounds(100,100,10,10);
         JTextField[] jTextField = new JTextField[10];
+        // TODO:Implement agjmatrix on window
         for (int i = 0; i < jTextField.length; ++i) {
             jTextField[i]=new JTextField("0",1);
             jPanel.add(jTextField[i]);
@@ -53,4 +54,4 @@ public class App {
     }
 
 }
-//TODO:попробовать убрать переменные lowlink и onStack из конструктора
+//TODO:clear smell code
