@@ -1,18 +1,26 @@
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 import java.util.ArrayList;
+import java.util.List;
 
+@Data
+@AllArgsConstructor
 public class DirectedGraph {
-    private ArrayList<Vertex> vertexList;
-    private ArrayList<Edge> edgeList;
+    private List<Vertex> vertexList;
+    private List<Edge> edgeList;
 
-    public DirectedGraph(ArrayList<Vertex> vertexList, ArrayList<Edge> edgeList) {
-        this.vertexList = vertexList;
-        this.edgeList = edgeList;
-    }
 
     public void addVertex(String vertexName, int numberVertex) {
-        ArrayList<Vertex> emptyAdjVertexList = new ArrayList<Vertex>(0);
-        ArrayList<Edge> emptyEdgesList = new ArrayList<Edge>(0);
-        Vertex vertex = new Vertex(numberVertex, 0, vertexName, -1, emptyAdjVertexList, emptyEdgesList);
+        List<Vertex> emptyAdjVertexList = new ArrayList<Vertex>(0);
+        List<Edge> emptyEdgesList = new ArrayList<Edge>(0);
+        Vertex vertex = new Vertex(vertexName,
+                StronglyConnectedComponents.UNDEFINED,
+                numberVertex,
+                0,
+                emptyAdjVertexList,
+                emptyEdgesList,
+                false);
         vertexList.add(vertex);
     }
 
@@ -25,21 +33,6 @@ public class DirectedGraph {
         edgeList.add(edge);
     }
 
-    public ArrayList<Vertex> getVertexList() {
-        return vertexList;
-    }
-
-    public void setVertexList(ArrayList<Vertex> vertexList) {
-        this.vertexList = vertexList;
-    }
-
-    public ArrayList<Edge> getEdgeList() {
-        return edgeList;
-    }
-
-    public void setEdgeList(ArrayList<Edge> edgeList) {
-        this.edgeList = edgeList;
-    }
 
     @Override
     public String toString() {

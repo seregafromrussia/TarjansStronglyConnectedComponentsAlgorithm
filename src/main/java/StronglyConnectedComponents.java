@@ -1,14 +1,16 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 public class StronglyConnectedComponents {
-    private ArrayList<SCC> stronglyConnectedComponents;
+    public static final int UNDEFINED = -1;
+    private List<SCC> stronglyConnectedComponents;
     //index := 0
     static int index = 0;
     // S := empty stack
     static Stack<Vertex> stack = new Stack<Vertex>();
 
-    public StronglyConnectedComponents(ArrayList<SCC> stronglyConnectedComponents) {
+    public StronglyConnectedComponents(List<SCC> stronglyConnectedComponents) {
         this.stronglyConnectedComponents = stronglyConnectedComponents;
     }
 
@@ -16,7 +18,7 @@ public class StronglyConnectedComponents {
         // for each v in V do
         for (Vertex v : directedGraph.getVertexList()) {
             //if v.index is undefined then
-            if (v.getIndex() == -1) {
+            if (v.getIndex() == UNDEFINED) {
                 strongconnect(v);
             }
         }
@@ -39,7 +41,7 @@ public class StronglyConnectedComponents {
         //for each (v, w) in E do
         for (Edge e : v.getEdges()) {
             //if w.index is undefined then
-            if (e.getTargetVertex().getIndex() == -1) {
+            if (e.getTargetVertex().getIndex() == UNDEFINED) {
                 /*w еще не был посещен; рекурсия на нем*/
                 //strongconnect(w)
                 strongconnect(e.getTargetVertex());
@@ -60,7 +62,7 @@ public class StronglyConnectedComponents {
         }//end for
         //if v.lowlink = v.index then start a new strongly connected component
         if (v.getLowlink() == v.getIndex()) {
-            ArrayList<Vertex> emptyVertexList = new ArrayList<Vertex>(0);
+            List<Vertex> emptyVertexList = new ArrayList<Vertex>(0);
             Vertex w = v;
             SCC stronglyConnectedComponent = new SCC(emptyVertexList);
             do {
@@ -76,11 +78,11 @@ public class StronglyConnectedComponents {
         }// end if
     }//end function
 
-    public ArrayList<SCC> getStronglyConnectedComponents() {
+    public List<SCC> getStronglyConnectedComponents() {
         return stronglyConnectedComponents;
     }
 
-    public void setStronglyConnectedComponents(ArrayList<SCC> stronglyConnectedComponents) {
+    public void setStronglyConnectedComponents(List<SCC> stronglyConnectedComponents) {
         this.stronglyConnectedComponents = stronglyConnectedComponents;
     }
 

@@ -1,12 +1,13 @@
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class InitGraph {
     String nameOfVertex = "v";
 
     public DirectedGraph initDirectedGraphWithAdjMatrix(int[][] adjMatrix) {
-        ArrayList<Vertex> vertexList = new ArrayList<Vertex>(0);
-        ArrayList<Edge> edgeList = new ArrayList<Edge>(0);
+        List<Vertex> vertexList = new ArrayList<Vertex>(0);
+        List<Edge> edgeList = new ArrayList<Edge>(0);
         DirectedGraph directedGraph = new DirectedGraph(vertexList, edgeList);
         initVertexes(directedGraph, adjMatrix.length);
         initEdges(directedGraph, adjMatrix);
@@ -18,9 +19,6 @@ public class InitGraph {
             directedGraph.addVertex("V",i+1);
         }
     }
-
-
-
 
     public void initEdges(DirectedGraph directedGraph, int[][] adjMatrix) {
         for (int i = 0; i < adjMatrix.length; ++i) {

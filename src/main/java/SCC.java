@@ -1,21 +1,12 @@
-import java.util.ArrayList;
-import java.util.Stack;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
+import java.util.List;
+
+@Data
+@AllArgsConstructor
 public class SCC {
-    private ArrayList<Vertex> vertices;
-
-
-    public SCC(ArrayList<Vertex> vertices) {
-        this.vertices = vertices;
-    }
-
-    public ArrayList<Vertex> getVertices() {
-        return vertices;
-    }
-
-    public void setVertices(ArrayList<Vertex> vertices) {
-        this.vertices = vertices;
-    }
+    private List<Vertex> vertices;
 
     public void addVertexToSCC(Vertex vertex) {
         vertices.add(vertex);
