@@ -8,7 +8,6 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 public class Vertex {
-
     private String name;
     private int index;
     private int number;
@@ -39,23 +38,17 @@ public class Vertex {
      * @return - string representation of vertex
      */
     public String toString() {
-        String stringVertex = "{"
-                + name
-                + String.valueOf(number)
-                + "}";
-        return stringVertex;
+        return "{" + name + number + "}";
     }
 
     /**
      * @return - string representation of edge
      */
     public String printAdjacentVertexes() {
-        String stringAdjVertexes = "  : ";
+        StringBuilder stringAdjVertexes = new StringBuilder("  : ");
         for (Vertex Vertexes : adjVertexes) {
-            stringAdjVertexes += Vertexes.toString()
-                    + " ";
+            stringAdjVertexes.append(Vertexes.toString()).append(" ");
         }
-        return stringAdjVertexes;
+        return stringAdjVertexes.toString();
     }
-
 }

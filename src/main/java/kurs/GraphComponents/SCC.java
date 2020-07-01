@@ -2,7 +2,6 @@ package kurs.GraphComponents;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-
 import java.util.List;
 
 @Data
@@ -24,10 +23,10 @@ public class SCC {
      */
     @Override
     public String toString() {
-        String strSCC = "SCC: ";
+        StringBuilder strSCC = new StringBuilder("SCC: ");
         for (Vertex v : vertexList) {
-            strSCC += v.toString();
+            strSCC.append(v.toString());
         }
-        return strSCC;
+        return strSCC.toString();
     }
 }

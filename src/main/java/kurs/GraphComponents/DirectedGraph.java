@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +11,6 @@ import java.util.List;
 @AllArgsConstructor
 @Component
 public class DirectedGraph {
-
     private List<Vertex> vertexList;
     private List<Edge> edgeList;
 
@@ -26,7 +24,7 @@ public class DirectedGraph {
 
     private void initVertexes(DirectedGraph directedGraph, int numberOfVertices) {
         for (int i = 0; i < numberOfVertices; ++i) {
-            directedGraph.addVertex("V",
+            directedGraph.addVertex(
                     i + 1);
         }
     }
@@ -44,15 +42,14 @@ public class DirectedGraph {
         }
     }
 
-
-    private void addVertex(String vertexName, int numberVertex) {
+    private void addVertex(int numberVertex) {
         Vertex vertex = new Vertex(
-                vertexName,
+                "V",
                 StronglyConnectedComponents.UNDEFINED_INDEX,
                 numberVertex,
                 0,
-                new ArrayList<Vertex>(0),
-                new ArrayList<Edge>(0),
+                new ArrayList<>(0),
+                new ArrayList<>(0),
                 false);
         vertexList.add(vertex);
     }
@@ -66,19 +63,17 @@ public class DirectedGraph {
         edgeList.add(edge);
     }
 
-
     /**
      * @return string representation of list of adjacent vertexes
      */
     public String printAdjList() {
-        String strAdjList = "AdjList";
+        StringBuilder strAdjList = new StringBuilder("AdjList");
         for (Vertex vertexes : vertexList) {
-            strAdjList += "\n"
-                    + vertexes.toString()
-                    + vertexes.printAdjacentVertexes();
+            strAdjList.append("\n").
+                    append(vertexes.toString()).
+                    append(vertexes.printAdjacentVertexes());
         }
-        strAdjList += "\n";
-        return strAdjList;
+        strAdjList.append("\n");
+        return strAdjList.toString();
     }
-
 }
