@@ -1,21 +1,28 @@
 package kurs.GraphComponents;
 
+import lombok.Data;
+import lombok.extern.java.Log;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+@Log
 @Component
+@Data
 public class AdjMatrix {
-    /**
-     * @return the adjacency matrix
-     */
-    public int[][] getAdjMatrix() {
+    private int[][] adjMatrix;
 
-        return new int[][]{
-                {0, 1, 0, 0, 0, 1 },
-                {0, 0, 1, 0, 0, 0},
-                {0, 0, 0, 1, 1, 0},
-                {0, 0, 1, 0, 0, 0},
-                {0, 0, 0, 1, 0, 0},
-                {1, 0, 0, 0, 1, 0}};
+    private static int[][] adjMatrixStatic = new int[][]{
+            {0, 1, 0, 0, 0, 1},
+            {0, 0, 1, 0, 0, 0},
+            {0, 0, 0, 1, 1, 0},
+            {0, 0, 1, 0, 0, 0},
+            {0, 0, 0, 1, 0, 0},
+            {1, 0, 0, 0, 1, 0}};
+
+    @Autowired
+    private void initAdjMatrix(AdjMatrix adjMatrix) {
+        adjMatrix.setAdjMatrix(adjMatrixStatic);
+        log.info(toString());
     }
 
     /**

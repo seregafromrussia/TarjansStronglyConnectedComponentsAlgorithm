@@ -2,6 +2,7 @@ package kurs.GraphComponents;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @Component
+@Log
 public class DirectedGraph {
     private List<Vertex> vertexList;
     private List<Edge> edgeList;
@@ -20,6 +22,7 @@ public class DirectedGraph {
                 adjMatrix.getAdjMatrix().length);
         initEdges(directedGraph,
                 adjMatrix.getAdjMatrix());
+        log.info(toString());
     }
 
     private void initVertexes(DirectedGraph directedGraph, int numberOfVertices) {
@@ -66,7 +69,8 @@ public class DirectedGraph {
     /**
      * @return string representation of list of adjacent vertexes
      */
-    public String printAdjList() {
+    @Override
+    public String toString() {
         StringBuilder strAdjList = new StringBuilder("AdjList");
         for (Vertex vertexes : vertexList) {
             strAdjList.append("\n").

@@ -2,6 +2,7 @@ package kurs.GraphComponents;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -12,6 +13,7 @@ import java.util.Stack;
 @Data
 @AllArgsConstructor
 @Component
+@Log
 public class StronglyConnectedComponents {
     public static final int UNDEFINED_INDEX = -1;
 
@@ -27,6 +29,7 @@ public class StronglyConnectedComponents {
                 strongConnect(v);
             }
         }
+        log.info(toString());
     }
 
     private void strongConnect(Vertex v) {
