@@ -2,18 +2,17 @@ package kurs.GraphComponents;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-
 public class Application {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext
-                        ("applicationContext.xml");
+                ("applicationContext.xml");
 
         DirectedGraph directedGraph = context.getBean
-                        ("directedGraph", DirectedGraph.class);
+                ("directedGraph", DirectedGraph.class);
 
         StronglyConnectedComponents stronglyConnectedComponents = context.getBean
-                        ("stronglyConnectedComponents",
-                                StronglyConnectedComponents.class);
+                ("stronglyConnectedComponents",
+                        StronglyConnectedComponents.class);
 
         AdjMatrix adjMatrix = context.getBean("adjMatrix", AdjMatrix.class);
 
