@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Log
 @Component
 @Data
-public class AdjMatrix {
+public final class AdjMatrix {
     private int[][] adjMatrix;
 
     private static int[][] adjMatrixStatic = new int[][]{
@@ -25,9 +25,7 @@ public class AdjMatrix {
         log.info(toString());
     }
 
-    /**
-     * @return string representation of the adjacency matrix
-     */
+    @Override
     public String toString() {
         StringBuilder strAdjMatrix = new StringBuilder("AdjMatrix\n");
         for (int i = 0; i < getAdjMatrix().length; ++i) {

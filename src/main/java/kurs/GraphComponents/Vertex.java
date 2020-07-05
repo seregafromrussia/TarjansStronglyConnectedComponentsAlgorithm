@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
-public class Vertex {
+public final class Vertex {
     private String name;
     private int index;
     private int number;
@@ -34,17 +34,12 @@ public class Vertex {
         adjVertexes.add(adjVertex);
     }
 
-    /**
-     * @return - string representation of vertex
-     */
+    @Override
     public String toString() {
         return "{" + name + number + "}";
     }
 
-    /**
-     * @return - string representation of edge
-     */
-    public String printAdjacentVertexes() {
+    public String toStringAdjacentVertexes() {
         StringBuilder stringAdjVertexes = new StringBuilder("  : ");
         for (Vertex Vertexes : adjVertexes) {
             stringAdjVertexes.append(Vertexes.toString()).append(" ");

@@ -12,23 +12,21 @@ import java.util.List;
 @AllArgsConstructor
 @Component
 @Log
-public class DirectedGraph {
+public final class DirectedGraph {
     private List<Vertex> vertexList;
     private List<Edge> edgeList;
 
     @Autowired
     private void initDirectedGraph(DirectedGraph directedGraph, AdjMatrix adjMatrix) {
-        initVertexes(directedGraph,
-                adjMatrix.getAdjMatrix().length);
-        initEdges(directedGraph,
-                adjMatrix.getAdjMatrix());
+        initVertexes(directedGraph, adjMatrix.getAdjMatrix().length);
+        initEdges(directedGraph, adjMatrix.getAdjMatrix());
         log.info(toString());
     }
 
     private void initVertexes(DirectedGraph directedGraph, int numberOfVertices) {
+        vertexList = new ArrayList<>(numberOfVertices);
         for (int i = 0; i < numberOfVertices; ++i) {
-            directedGraph.addVertex(
-                    i + 1);
+            directedGraph.addVertex(i + 1);
         }
     }
 
@@ -66,16 +64,13 @@ public class DirectedGraph {
         edgeList.add(edge);
     }
 
-    /**
-     * @return string representation of list of adjacent vertexes
-     */
     @Override
     public String toString() {
         StringBuilder strAdjList = new StringBuilder("AdjList");
         for (Vertex vertexes : vertexList) {
             strAdjList.append("\n").
                     append(vertexes.toString()).
-                    append(vertexes.printAdjacentVertexes());
+                    append(vertexes.toStringAdjacentVertexes());
         }
         strAdjList.append("\n");
         return strAdjList.toString();

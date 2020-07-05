@@ -6,7 +6,7 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
-public class SCC {
+public final class SCC {
     private List<Vertex> vertexList;
 
     /**
@@ -18,9 +18,6 @@ public class SCC {
         vertexList.add(vertex);
     }
 
-    /**
-     * @return - string representation of strongly connected component
-     */
     @Override
     public String toString() {
         StringBuilder strSCC = new StringBuilder("SCC: ");

@@ -14,7 +14,7 @@ import java.util.Stack;
 @AllArgsConstructor
 @Component
 @Log
-public class StronglyConnectedComponents {
+public final class StronglyConnectedComponents {
     public static final int UNDEFINED_INDEX = -1;
 
     private List<SCC> sccList;
@@ -63,9 +63,6 @@ public class StronglyConnectedComponents {
         }
     }
 
-    /**
-     * @return - string representation of strongly connected components
-     */
     @Override
     public String toString() {
         int numberOfSCC = 0;
