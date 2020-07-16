@@ -7,7 +7,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 public final class SCC {
-    private List<Vertex> vertexList;
+    private final List<Vertex> vertexList;
 
     /**
      * adds an vertex to the strongly connected component's list of vertexes

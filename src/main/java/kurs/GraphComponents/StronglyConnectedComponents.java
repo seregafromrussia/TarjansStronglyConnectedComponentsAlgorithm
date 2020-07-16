@@ -17,10 +17,10 @@ import java.util.Stack;
 public final class StronglyConnectedComponents {
     public static final int UNDEFINED_INDEX = -1;
 
-    private List<SCC> sccList;
+    private final List<SCC> sccList;
 
     private static int index = 0;
-    private static Stack<Vertex> stack = new Stack<>();
+    private static final Stack<Vertex> stack = new Stack<>();
 
     @Autowired
     private void initStronglyConnectedComponents(DirectedGraph directedGraph) {

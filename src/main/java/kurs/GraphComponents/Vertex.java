@@ -8,12 +8,13 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 public final class Vertex {
-    private String name;
+    private final String name;
+    private final int number;
+    private final List<Vertex> adjVertexes;
+    private final List<Edge> incidentEdges;
+
     private int index;
-    private int number;
     private int lowLink;
-    private List<Vertex> adjVertexes;
-    private List<Edge> incidentEdges;
     private boolean onStack;
 
     /**

@@ -46,11 +46,11 @@ public final class DirectedGraph {
     private void addVertex(int numberVertex) {
         Vertex vertex = new Vertex(
                 "V",
-                StronglyConnectedComponents.UNDEFINED_INDEX,
                 numberVertex,
+                new ArrayList<>(0),
+                new ArrayList<>(0),
+                StronglyConnectedComponents.UNDEFINED_INDEX,
                 0,
-                new ArrayList<>(0),
-                new ArrayList<>(0),
                 false);
         vertexList.add(vertex);
     }
