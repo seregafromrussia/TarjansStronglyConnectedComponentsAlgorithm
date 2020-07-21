@@ -6,6 +6,7 @@ import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -23,7 +24,10 @@ public final class StronglyConnectedComponents {
     private static final Stack<Vertex> stack = new Stack<>();
 
     @Autowired
-    private void initStronglyConnectedComponents(DirectedGraph directedGraph) {
+    private DirectedGraph directedGraph;
+
+    @PostConstruct
+    private void initStronglyConnectedComponents() {
         for (Vertex v : directedGraph.getVertexList()) {
             if (v.getIndex() == UNDEFINED_INDEX) {
                 strongConnect(v);
