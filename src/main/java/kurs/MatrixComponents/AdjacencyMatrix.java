@@ -1,21 +1,31 @@
 package kurs.MatrixComponents;
 
 import lombok.Data;
+import lombok.extern.java.Log;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Component
 @Data
-public final class AdjMatrix {
+@Log
+public final class AdjacencyMatrix {
+    private List<List<Integer>> adjacencyMatrix;
+    @Autowired
+    private Parser parser;
 
-    private List<List<Integer>> adjMatrix = new ArrayList<>();
+    @PostConstruct
+    private void init(){
+        adjacencyMatrix = parser.parse();
+        log.info(toString());
+    }
 
     @Override
     public String toString() {
         StringBuilder strAdjMatrix = new StringBuilder("AdjMatrix\n");
-        for (List<Integer> list : adjMatrix) {
+        for (List<Integer> list : adjacencyMatrix) {
             strAdjMatrix.append("{");
             for (Integer number : list) {
                 strAdjMatrix.append(" ").append(number).append(", ");

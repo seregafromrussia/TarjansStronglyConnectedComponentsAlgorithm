@@ -1,6 +1,6 @@
 package kurs.GraphComponents;
 
-import kurs.MatrixComponents.AdjMatrix;
+import kurs.MatrixComponents.AdjacencyMatrix;
 import lombok.AllArgsConstructor;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +19,12 @@ public final class DirectedGraphInitialization {
     @Autowired
     private final DirectedGraph directedGraph;
     @Autowired
-    private final AdjMatrix adjMatrix;
+    private final AdjacencyMatrix adjacencyMatrix;
 
     @PostConstruct
     private void initDirectedGraph() {
-        initVertexes(adjMatrix.getAdjMatrix().size());
-        initEdges(adjMatrix.getAdjMatrix());
+        initVertexes(adjacencyMatrix.getAdjacencyMatrix().size());
+        initEdges(adjacencyMatrix.getAdjacencyMatrix());
         log.info(directedGraph.toString());
     }
 
