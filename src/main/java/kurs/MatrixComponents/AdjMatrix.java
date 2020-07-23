@@ -3,29 +3,27 @@ package kurs.MatrixComponents;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 @Data
 public final class AdjMatrix {
-    //TODO: разобраться с null
-    private int[][] adjMatrix = new int[][]{
-            {0, 1, 0, 0, 0, 1},
-            {0, 0, 1, 0, 0, 0},
-            {0, 0, 0, 1, 1, 0},
-            {0, 0, 1, 0, 0, 0},
-            {0, 0, 0, 1, 0, 0},
-            {1, 0, 0, 0, 1, 0}};
+
+    private List<List<Integer>> adjMatrix = new ArrayList<>();
 
     @Override
     public String toString() {
         StringBuilder strAdjMatrix = new StringBuilder("AdjMatrix\n");
-        for (int i = 0; i < getAdjMatrix().length; ++i) {
+        for (List<Integer> list : adjMatrix) {
             strAdjMatrix.append("{");
-            for (int j = 0; j < getAdjMatrix()[0].length; ++j) {
-                strAdjMatrix.append(" ").append(getAdjMatrix()[i][j]).append(", ");
+            for (Integer number : list) {
+                strAdjMatrix.append(" ").append(number).append(", ");
             }
             strAdjMatrix.append("},");
             strAdjMatrix.append("\n");
         }
         return strAdjMatrix.toString();
+
     }
 }

@@ -4,14 +4,17 @@ import kurs.MatrixComponents.AdjMatrix;
 import lombok.AllArgsConstructor;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
+import java.util.List;
 
 @Log
 @AllArgsConstructor
 @Component
+@DependsOn({"matrixReaderFromTextFile"})
 public final class DirectedGraphInitialization {
     @Autowired
     private final DirectedGraph directedGraph;
@@ -20,7 +23,7 @@ public final class DirectedGraphInitialization {
 
     @PostConstruct
     private void initDirectedGraph() {
-        initVertexes(adjMatrix.getAdjMatrix().length);
+        initVertexes(adjMatrix.getAdjMatrix().size());
         initEdges(adjMatrix.getAdjMatrix());
         log.info(directedGraph.toString());
     }
@@ -31,16 +34,17 @@ public final class DirectedGraphInitialization {
         }
     }
 
-    private void initEdges(int[][] adjMatrix) {
-        for (int i = 0; i < adjMatrix.length; ++i) {
-            for (int j = 0; j < adjMatrix[0].length; ++j) {
-                if (adjMatrix[i][j] != 0) {
-                    addEdge(
-                            i + 1,
-                            j + 1,
-                            adjMatrix[i][j]);
+    private void initEdges(List<List<Integer>> adjMatrix) {
+        int i = 0;
+        for (List<Integer> list : adjMatrix) {
+            int j = 0;
+            for (Integer number : list) {
+                if (number != 0) {
+                    addEdge(i + 1, j + 1, number);
                 }
+                ++j;
             }
+            ++i;
         }
     }
 
