@@ -15,12 +15,12 @@ import java.util.stream.Stream;
 
 @Log
 @Component
-public class MatrixReaderFromTextFile implements Reader {
+public final class MatrixReaderFromTextFile implements Reader {
 //    @Autowired
 //    private AdjacencyMatrix adjacencyMatrix;
 
-    //TODO: и разобраться с жиненным циклом бина
-    //нэйминг, дженерики, интерфейсы и NotNull annotation
+    //TODO: нэйминг, дженерики и NotNull annotation, инжектирование полей,
+
 
     @PostConstruct
     public List<String> read() {
