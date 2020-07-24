@@ -43,7 +43,7 @@ public final class StronglyConnectedComponents {
         stack.push(v);
         v.setOnStack(true);
 
-        for (Edge e : v.getIncidentEdges()) {
+        for (Edge<Integer> e : v.getIncidentEdges()) {
 
             if (e.getTargetVertex().getIndex() == UNDEFINED_INDEX) {
                 strongConnect(e.getTargetVertex());

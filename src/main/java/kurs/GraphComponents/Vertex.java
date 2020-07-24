@@ -11,7 +11,7 @@ public final class Vertex {
     private final String name;
     private final int number;
     private final List<Vertex> adjVertexes;
-    private final List<Edge> incidentEdges;
+    private final List<Edge<Integer>> incidentEdges;
 
     private int index;
     private int lowLink;
@@ -22,7 +22,7 @@ public final class Vertex {
      *
      * @param edge - incident edge
      */
-    public void addEdge(Edge edge) {
+    public void addEdge(Edge<Integer> edge) {
         incidentEdges.add(edge);
     }
 

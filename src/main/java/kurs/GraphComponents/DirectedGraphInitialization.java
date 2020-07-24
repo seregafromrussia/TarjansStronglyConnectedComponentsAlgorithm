@@ -60,11 +60,11 @@ public final class DirectedGraphInitialization {
         directedGraph.getVertexList().add(vertex);
     }
 
-    public void addEdge(int numberSourceVertex, int numberTargetVertex, double weight) {
+    public void addEdge(int numberSourceVertex, int numberTargetVertex, int weight) {
         Vertex sourceVertex = directedGraph.getVertexList().get(numberSourceVertex - 1);
         Vertex targetVertex = directedGraph.getVertexList().get(numberTargetVertex - 1);
         directedGraph.getVertexList().get(numberSourceVertex - 1).addAdjVertex(targetVertex);
-        Edge edge = new Edge(sourceVertex, targetVertex, weight);
+        Edge<Integer> edge = new Edge<>(sourceVertex, targetVertex, weight);
         directedGraph.getVertexList().get(numberSourceVertex - 1).addEdge(edge);
         directedGraph.getEdgeList().add(edge);
     }

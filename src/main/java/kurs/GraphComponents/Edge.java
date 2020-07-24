@@ -5,8 +5,8 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public final class Edge {
+public final class Edge <T> {
     private final Vertex sourceVertex;
     private final Vertex targetVertex;
-    private final double weight;
+    private final T weight;
 }

@@ -14,7 +14,7 @@ import java.util.List;
 @Log
 public final class DirectedGraphImpl implements DirectedGraph {
     private final List<Vertex> vertexList = new ArrayList<>();
-    private final List<Edge> edgeList = new ArrayList<>();
+    private final List<Edge<Integer>> edgeList = new ArrayList<>();
 
     @Override
     public String toString() {
