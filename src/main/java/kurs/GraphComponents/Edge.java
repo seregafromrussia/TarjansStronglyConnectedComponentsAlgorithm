@@ -1,9 +1,9 @@
 package kurs.GraphComponents;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 
-@Data
+@Getter
 @AllArgsConstructor
 public final class Edge <T> {
     private final Vertex sourceVertex;

@@ -8,8 +8,12 @@ import java.util.List;
 
 @Component
 public final class MatrixParserImpl implements Parser {
+    private final Reader reader;
+
     @Autowired
-    private Reader reader;
+    public MatrixParserImpl(Reader reader) {
+        this.reader=reader;
+    }
 
     public List<List<Integer>> parse() {
         List<String> stringList = reader.read();

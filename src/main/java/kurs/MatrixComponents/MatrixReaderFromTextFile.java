@@ -16,12 +16,7 @@ import java.util.stream.Stream;
 @Log
 @Component
 public final class MatrixReaderFromTextFile implements Reader {
-//    @Autowired
-//    private AdjacencyMatrix adjacencyMatrix;
-
     //TODO: нэйминг, дженерики и NotNull annotation, инжектирование полей,
-
-
     @PostConstruct
     public List<String> read() {
         try (Stream<String> stream =

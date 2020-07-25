@@ -12,13 +12,17 @@ import java.util.List;
 @Data
 @Log
 public final class AdjacencyMatrix {
-    private List<List<Integer>> adjacencyMatrix;
+    private final List<List<Integer>> adjacencyMatrix;
+    private final Parser parser;
+
     @Autowired
-    private Parser parser;
+    public AdjacencyMatrix(Parser parser) {
+        this.parser = parser;
+        this.adjacencyMatrix = parser.parse();
+    }
 
     @PostConstruct
     private void init(){
-        adjacencyMatrix = parser.parse();
         log.info(toString());
     }
 

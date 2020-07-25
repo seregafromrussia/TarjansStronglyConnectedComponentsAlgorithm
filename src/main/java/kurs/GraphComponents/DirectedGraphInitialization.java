@@ -1,7 +1,6 @@
 package kurs.GraphComponents;
 
 import kurs.MatrixComponents.AdjacencyMatrix;
-import lombok.AllArgsConstructor;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.DependsOn;
@@ -12,14 +11,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Log
-@AllArgsConstructor
 @Component
 @DependsOn({"matrixReaderFromTextFile"})
 public final class DirectedGraphInitialization {
-    @Autowired
     private final DirectedGraph directedGraph;
-    @Autowired
     private final AdjacencyMatrix adjacencyMatrix;
+
+    @Autowired
+    public DirectedGraphInitialization(DirectedGraph directedGraph,
+                                       AdjacencyMatrix adjacencyMatrix) {
+        this.directedGraph = directedGraph;
+        this.adjacencyMatrix = adjacencyMatrix;
+    }
 
     @PostConstruct
     private void initDirectedGraph() {
