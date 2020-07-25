@@ -17,6 +17,7 @@ import java.util.stream.Stream;
 @Component
 public final class MatrixReaderFromTextFile implements Reader {
     //TODO: нэйминг, дженерики и NotNull annotation, инжектирование полей,
+    @Override
     @PostConstruct
     public List<String> read() {
         try (Stream<String> stream =
