@@ -9,7 +9,7 @@ import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
-public final class Vertex {
+final class Vertex {
     private final String name;
     private final int number;
     private final List<Vertex> adjVertexes;

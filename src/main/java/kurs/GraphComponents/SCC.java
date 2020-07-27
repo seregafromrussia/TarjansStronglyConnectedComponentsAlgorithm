@@ -6,7 +6,7 @@ import java.util.List;
 
 
 @AllArgsConstructor
-public final class SCC {
+final class SCC {
     private final List<Vertex> vertexList;
 
     /**

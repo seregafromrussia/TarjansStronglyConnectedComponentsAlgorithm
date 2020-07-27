@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public final class MatrixParserImpl implements Parser {
+final class MatrixParserImpl implements Parser {
     private final Reader reader;
 
     @Autowired

@@ -13,7 +13,7 @@ import java.util.List;
 @Log
 @Component
 @DependsOn({"matrixReaderFromTextFile"})
-public final class DirectedGraphInitialization {
+final class DirectedGraphInitialization {
     private final DirectedGraph directedGraph;
     private final AdjacencyMatrix adjacencyMatrix;
 

@@ -15,7 +15,7 @@ import java.util.stream.Stream;
 
 @Log
 @Component
-public final class MatrixReaderFromTextFile implements Reader {
+final class MatrixReaderFromTextFile implements Reader {
     //TODO: нэйминг, дженерики и NotNull annotation, инжектирование полей,
     @Override
     @PostConstruct
