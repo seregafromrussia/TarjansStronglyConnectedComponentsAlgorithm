@@ -1,6 +1,6 @@
 package kurs.MatrixComponents;
 
-import lombok.Data;
+import lombok.Getter;
 import lombok.extern.java.Log;
 import org.springframework.stereotype.Component;
 
@@ -8,12 +8,11 @@ import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Component
-@Data
+@Getter
 @Log
 public final class AdjacencyMatrix {
     private final List<List<Integer>> adjacencyMatrix;
     private final Parser parser;
-
 
     public AdjacencyMatrix(Parser parser) {
         this.parser = parser;
