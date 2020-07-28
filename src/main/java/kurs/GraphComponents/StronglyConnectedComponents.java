@@ -1,8 +1,8 @@
 package kurs.GraphComponents;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.extern.java.Log;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -13,19 +13,15 @@ import java.util.Stack;
 @Getter
 @Component
 @Log
+@AllArgsConstructor
 public final class StronglyConnectedComponents {
     public static final int UNDEFINED_INDEX = -1;
 
     private static int index = 0;
     private static final Stack<Vertex> stack = new Stack<>();
 
-    private final List<SCC> sccList = new  ArrayList<>();
+    private final List<SCC> sccList = new ArrayList<>();
     private final DirectedGraph directedGraph;
-
-    @Autowired
-    public StronglyConnectedComponents(DirectedGraph directedGraph) {
-        this.directedGraph = directedGraph;
-    }
 
     @PostConstruct
     private void initStronglyConnectedComponents() {

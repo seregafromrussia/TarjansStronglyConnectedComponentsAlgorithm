@@ -1,19 +1,15 @@
 package kurs.MatrixComponents;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@AllArgsConstructor
 @Component
 final class MatrixParserImpl implements Parser {
     private final Reader reader;
-
-    @Autowired
-    public MatrixParserImpl(Reader reader) {
-        this.reader=reader;
-    }
 
     @Override
     public List<List<Integer>> parse() {
